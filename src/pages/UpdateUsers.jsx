@@ -11,14 +11,13 @@ const UpdateUsers = () => {
     useEffect(()=>{
         axios.get(`http://localhost:2028/users/${id}`).then(res=>{
             setUser(res.data)
-        })
-        .catch(err=>console.error(err));
+        }).catch((error) => console.error('Error fetching data:', error));
     },[])
     function Update(e){
         e.preventDefault();
         axios.put(`http://localhost:2028/users/${id}`,user).then(()=>{
             navigate(`/`)
-        }).catch(err=>console.error(err));
+        }).catch((error) => console.error('Error fetching data:', error));
         console.log(user);
     }
   return (

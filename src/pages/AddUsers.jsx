@@ -12,6 +12,7 @@ const AddUsers = () => {
         axios.post('http://localhost:2028/users',user).then(()=>{
             navigate("/")
         })
+        .catch((error) => console.error('Error fetching data:', error));
     }
   return (
     <div id="profile-container">

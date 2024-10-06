@@ -12,15 +12,14 @@ const GetUsers = () => {
         setState(res.data);
         setTable(Object.keys(res.data[0]).slice(0,4));
 
-       })
-       .catch(err => console.log(err))
+       }).catch((error) => console.error('Error fetching data:', error));
     }, [state])
     function DeleteUser(id){
         axios.delete(`http://localhost:2028/users/${id}`)
        .then(() => {
         navigate('/')
         console.log('User deleted successfully');
-       })
+       }).catch((error) => console.error('Error fetching data:', error));
     }
     
   return (
